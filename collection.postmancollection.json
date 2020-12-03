@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "b5e96249-9e7f-439c-b2e9-e89bd800c30d",
+		"name": "SiteMapURLVerification",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sitemaprequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f93147ce-26b1-4cd5-830f-4da16285d57c",
+						"exec": [
+							"pm.test(\"TC01-Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC02-HomeURLVerification\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.sitemapindex.sitemap[0].loc).to.eql(\"https://www.bigw.com.au/sitemap/homepage-en-aud.xml\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC03-ProdutURLVerification\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.sitemapindex.sitemap[1].loc).to.eql(\"https://www.bigw.com.au/sitemap/product-en-aud.xml\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC04-categoryURLVerification\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.sitemapindex.sitemap[2].loc).to.eql(\"https://www.bigw.com.au/sitemap/category-en-aud.xml\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC05-BrandURLVerification\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.sitemapindex.sitemap[3].loc).to.eql(\"https://www.bigw.com.au/sitemap/brand-en-aud.xml\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC06-StoreURLVerification\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.sitemapindex.sitemap[4].loc).to.eql(\"https://www.bigw.com.au/sitemap/store-en-aud.xml\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC07-ContentURLVerification\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.sitemapindex.sitemap[5].loc).to.eql(\"https://www.bigw.com.au/sitemap/content-en-aud.xml\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.bigw.com.au/sitemap.xml",
+					"protocol": "https",
+					"host": [
+						"www",
+						"bigw",
+						"com",
+						"au"
+					],
+					"path": [
+						"sitemap.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HomePageURLVerification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e041329-7822-4f1f-b5af-aae72997b655",
+						"exec": [
+							"pm.test(\"TC01-Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC02-HomeURLVerification\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.urlset.url.loc).to.eql(\"https://www.bigw.com.au/\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC03-changefreq\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.urlset.url.changefreq).to.eql(\"daily\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TC04-Priority\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    console.log(jsonObject);\r",
+							"    pm.expect(jsonObject.urlset.url.priority).to.eql(\"1.0\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.bigw.com.au/sitemap/homepage-en-aud.xml",
+					"protocol": "https",
+					"host": [
+						"www",
+						"bigw",
+						"com",
+						"au"
+					],
+					"path": [
+						"sitemap",
+						"homepage-en-aud.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category Verification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12585212-0138-44de-9477-c59df20d4483",
+						"exec": [
+							"pm.test(\"TC01-Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.bigw.com.au/sitemap/category-en-aud.xml",
+					"protocol": "https",
+					"host": [
+						"www",
+						"bigw",
+						"com",
+						"au"
+					],
+					"path": [
+						"sitemap",
+						"category-en-aud.xml"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
